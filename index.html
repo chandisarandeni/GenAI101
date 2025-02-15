@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Fact Generator</title>
+    <style>
+        body {
+            font-family: Impact, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            position: relative;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            animation: rgb-glow 5s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes rgb-glow {
+            0% { box-shadow: 0 0 15px rgba(255, 0, 0, 0.5); }
+            16% { box-shadow: 0 0 15px rgba(255, 165, 0, 0.5); }
+            33% { box-shadow: 0 0 15px rgba(255, 255, 0, 0.5); }
+            50% { box-shadow: 0 0 15px rgba(0, 255, 0, 0.5); }
+            66% { box-shadow: 0 0 15px rgba(0, 0, 255, 0.5); }
+            83% { box-shadow: 0 0 15px rgba(75, 0, 130, 0.5); }
+            100% { box-shadow: 0 0 15px rgba(238, 130, 238, 0.5); }
+        }
+        p {
+            font-size: 1.2em;
+            color: #555;
+            position: relative;
+            z-index: 2;
+            margin: 10px 0;
+            white-space: nowrap;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        button {
+            font-family: Impact, sans-serif;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 40px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+                max-width: 90%;
+            }
+            p {
+                font-size: 1em;
+            }
+            button {
+                padding: 8px 32px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Fun Fact Generator</h1>
+    <div class="container">
+        <p id="funFact">Press the button to generate a fun fact!</p>
+        <img id="funFactImage" src="images/main.jpg" alt="Fun Fact Image">
+    </div>
+    <button onclick="generateFunFact()">Generate Another Fun Fact</button>
+
+    <script>
+        const funFacts = [
+            "Dogs understand up to 165 words.",
+            "Basenji dogs don’t bark, they yodel.",
+            "Greyhounds can run 45 mph.",
+            "Dogs have three eyelids for protection.",
+            "World’s oldest dog lived 29 years.",
+            "Dogs’ noses are wet for smelling.",
+            "Dog’s sense of smell is 40x stronger.",
+            "Labrador Retrievers are the most popular.",
+            "Small dogs dream more than big ones.",
+            "Dogs’ noseprints are unique like fingerprints."
+        ];
+
+        const funFactImages = [
+            "images/fact1.jpg",
+            "images/fact2.jpg",
+            "images/fact3.jpg",
+            "images/fact4.jpg",
+            "images/fact5.jpg",
+            "images/fact6.png",
+            "images/fact7.jpg",
+            "images/fact8.jpg",
+            "images/fact9.jpg",
+            "images/fact10.jpg"
+        ];
+
+        function generateFunFact() {
+            const randomIndex = Math.floor(Math.random() * funFacts.length);
+            document.getElementById('funFact').textContent = funFacts[randomIndex];
+            document.getElementById('funFactImage').src = funFactImages[randomIndex];
+        }
+    </script>
+</body>
+</html>
